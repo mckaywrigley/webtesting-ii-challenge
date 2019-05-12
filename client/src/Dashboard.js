@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Display from "./Display";
 
 class Dashboard extends Component {
   constructor() {
@@ -11,15 +12,19 @@ class Dashboard extends Component {
 
   handleClick = type => {
     switch (type) {
-      case ball:
-        return this.state.balls + 1;
+      case "ball":
+        this.setState({
+          balls: this.state.balls + 1
+        });
         break;
-      case strike:
-        return this.state.strikes + 1;
+      case "strike":
+        this.setState({
+          strikes: this.state.strikes + 1
+        });
         break;
-      case foul:
+      case "foul":
         break;
-      case hit:
+      case "hit":
         break;
       default:
         return null;
@@ -29,10 +34,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick(ball)}>Ball</button>
-        <button onClick={this.handleClick(strike)}>Strike</button>
-        <button onClick={this.handleClick(foul)}>Foul</button>
-        <button onClick={this.handleClick(hit)}>hit</button>
+        <Display balls={this.state.balls} strikes={this.state.strikes} />
+        <button onClick={e => this.handleClick("ball")}>Ball</button>
+        <button onClick={e => this.handleClick("strike")}>Strike</button>
+        <button onClick={e => this.handleClick("foul")}>Foul</button>
+        <button onClick={e => this.handleClick("hit")}>hit</button>
       </div>
     );
   }
