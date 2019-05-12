@@ -1,9 +1,14 @@
 import React from "react";
-import * as rtl from "react-testing-library";
-import "jest-dom/extend-expect";
-
-afterEach(rtl.cleanup);
+import ReactDOM from "react-dom";
+import { render } from "react-testing-library";
+import App from "./App";
 
 it("renders without crashing", () => {
-  // ready to test!
+  const div = document.createElement("div");
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+it("renders", () => {
+  render(<App />);
 });
