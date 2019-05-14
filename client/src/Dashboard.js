@@ -61,7 +61,7 @@ class Dashboard extends Component {
         <button onClick={e => this.handleClick("ball")}>Ball</button>
         <button onClick={e => this.handleClick("strike")}>Strike</button>
         <button onClick={e => this.handleClick("foul")}>Foul</button>
-        <button onClick={e => this.handleClick("hit")}>hit</button>
+        <button onClick={e => this.handleClick("hit")}>Hit</button>
       </div>
     );
   }
